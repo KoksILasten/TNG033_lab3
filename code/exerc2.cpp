@@ -58,19 +58,20 @@ int main() {
     std::ofstream output("../code/output.txt");
 
     // Write the number of words read from the input file
-    output << "Total number of words: " << subjects.size() << std::endl;
+    output << "Total number of words: " << words.size() << std::endl;
 
     // Iterate over the map and write the anagrams for each subject
     //for (const auto& [subject, anagrams] : subjects) {
+
+    output << std::endl << "-- ANAGRAMS --" << std::endl;
     std::for_each(subjects.begin(), subjects.end(), [&output](table_entry p) {
         // Write the anagrams only if there are two or more
         if (p.second.size() >= 2) {
-            output << "Anagrams: ";
 
             // Use the std::for_each algorithm to write the anagrams to the output stream
             std::copy(p.second.begin(), p.second.end(), std::ostream_iterator<std::string>(output, " "));
 
-            output << "-->" << p.second.size() << " words" << std::endl;
+            output << " --> " << p.second.size() << " words." << std::endl;
         }
         });
 
