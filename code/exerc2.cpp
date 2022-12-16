@@ -17,7 +17,7 @@
 #include <vector>
 #include <set>
 
-using table_entry = std::pair < std::string, std::set<std::string>>;
+using table_entry = std::pair < std::string, std::set<std::string>>; //makes the code more readable
 
 int main() {
     // Create a map to store the subjects of words and their corresponding anagrams
@@ -32,26 +32,19 @@ int main() {
     }
 
     // Read words from the input file and add them to the map
-    //std::string word;
     std::vector<std::string> words;
+	
     //std::istream_iterator<string>(input)
     std::copy(std::istream_iterator<std::string>(input), std::istream_iterator<std::string>(), std::back_inserter(words)); 
     // std::copy takes an input iterator and an output iterator and copies the values from the input iterator to the output iterator.
-    //while (input >> word) {
-        // Sort the characters of the word alphabetically
-    //std::sort(words.begin(), words.end()); //not really needed
 
     // Add the word to the list of anagrams for its subject'
-
     std::for_each(words.begin(), words.end(), [&subjects](std::string aWord) {
-
-        //subjects[a].push_back(a); //does not exist
-        //std::string copyWord{ aWord }; //
         std::string temp = aWord;
         	
         std::sort(aWord.begin(), aWord.end());
 	    subjects[aWord].insert(temp);
-		});
+	});
 
 
 // Create an output file stream
