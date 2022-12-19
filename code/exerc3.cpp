@@ -32,7 +32,7 @@ int main() {
 
 	std::vector<double> terms(n);
 
-	std::iota(terms.begin(), terms.end(), 0); //fill terms with n zeros
+	std::iota(terms.begin(), terms.end(), 0); //fill terms with n terms starting from 0 counting up
 
 	std::vector<double> power_terms{ terms }; //copy constructor, create a copy of terms
 
